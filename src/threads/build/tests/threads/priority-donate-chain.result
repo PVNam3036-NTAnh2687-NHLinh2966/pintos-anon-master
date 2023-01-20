@@ -1,0 +1,11 @@
+FAIL
+Kernel panic in run: PANIC at ../../lib/kernel/list.c:171 in list_insert(): assertion `is_interior (before) || is_tail (before)' failed.
+Call stack: 0xc002ae58 0xc002b400 0xc002b5ea 0xc0022fd3 0xc002334b 0xc002fae5 0xc002138d
+Translation of call stack:
+0xc002ae58: debug_panic (.../../lib/kernel/debug.c:38)
+0xc002b400: list_insert (.../../lib/kernel/list.c:172)
+0xc002b5ea: list_push_back (.../../lib/kernel/list.c:219)
+0xc0022fd3: sema_down (.../../../threads/synch.c:71)
+0xc002334b: lock_acquire (...../../threads/synch.c:199)
+0xc002fae5: donor_thread_func (...riority-donate-chain.c:91)
+0xc002138d: kernel_thread (..../../threads/thread.c:478)
